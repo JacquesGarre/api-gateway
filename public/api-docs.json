@@ -1,0 +1,98 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Gateway - Subject Staging - Collective Minds Radiology",
+        "contact": {
+            "name": "Jacques Garré",
+            "email": "jcqs.gr@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/subject": {
+            "post": {
+                "tags": [
+                    "create_subject"
+                ],
+                "operationId": "/api/subject",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "subjectID": {
+                                        "type": "int"
+                                    },
+                                    "repositoryID": {
+                                        "type": "int"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "subjectID": 1,
+                                    "repositoryID": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Error: Bad request. When required parameters were not supplied."
+                    }
+                }
+            }
+        },
+        "/api/subject/{subjectID}/project": {
+            "post": {
+                "tags": [
+                    "assign_project_to_subject"
+                ],
+                "operationId": "/api/subject/subjectID/project",
+                "parameters": [
+                    {
+                        "name": "subjectID",
+                        "in": "path",
+                        "description": "The subjectID that you want to assign to a project in a repository",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "projectID": {
+                                        "type": "int"
+                                    },
+                                    "repositoryID": {
+                                        "type": "int"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "projectID": 1,
+                                    "repositoryID": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Error: Bad request. When required parameters were not supplied."
+                    }
+                }
+            }
+        }
+    }
+}

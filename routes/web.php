@@ -13,6 +13,18 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => 'api'], function () use ($router) {
+    
+    // Route to create a subject (GET api/)
+    $router->get('/', ['uses' => 'ApiController@index']);
+    
+    $router->group(['prefix' => 'subject'], function () use ($router) {
+
+        // Route to create a subject (POST api/subject)
+        $router->post('/', ['uses' => 'ApiController@storeSubject']);
+
+        // Route to assign a project to a subject (POST api/subject/{subjectID}/project)
+        $router->post('/{subjectID}/project', ['uses' => 'ApiController@assignProjectToSubject']);
+        
+    });
 });
