@@ -73,7 +73,7 @@ Api gateway to serve only a subset of the Core Api of Collective Minds system
 
   
 
-- Edit .env file ( CORE_API_BASE_URI= CORE_API_SECRET= ALLOWED_SECRETS= )
+- Copy .env.example to create a .env file and fill CORE_API_BASE_URI, CORE_API_SECRET, ALLOWED_SECRETS constants
 
   
 
