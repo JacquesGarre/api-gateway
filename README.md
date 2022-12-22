@@ -75,13 +75,15 @@ Api gateway to serve only a subset of the Core Api of Collective Minds system
 
 - Copy .env.example to create a .env file and fill CORE_API_BASE_URI, CORE_API_SECRET, ALLOWED_SECRETS constants
 
+
+- Go to http://localhost:8000/documentation.html if you need to have a look at the api (simplified) documentation
+
+
+- Within the container cli, you can run tests with `./vendor/bin/phpunit`
+
   
 
-- run tests with `./vendor/bin/phpunit`
 
-  
-
-- Go to http://localhost:8000/documentation.html if you need to have a look at the documentation
 
   
 
