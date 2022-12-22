@@ -19,7 +19,6 @@ class AuthenticateAccess
      */
     public function handle($request, Closure $next)
     {
-        $next($request);
         $allowedSecrets = explode(',', env('ALLOWED_SECRETS'));
         if (in_array($request->header('Authorization'), $allowedSecrets)) {
             return $next($request);

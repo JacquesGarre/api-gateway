@@ -117,7 +117,7 @@ abstract class TestCase extends BaseTestCase
     protected function getSecret()
     {
         $allowedSecrets = explode(',', env('ALLOWED_SECRETS'));
-        return $allowedSecrets[0];
+        return reset($allowedSecrets);
     }
 
 }

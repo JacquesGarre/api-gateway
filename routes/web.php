@@ -15,9 +15,6 @@
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     
-    // Route to create a subject (GET api/)
-    $router->get('/', ['uses' => 'ApiController@index']);
-    
     $router->group(['prefix' => 'subject'], function () use ($router) {
 
         // Route to create a subject (POST api/subject)
