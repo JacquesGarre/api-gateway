@@ -104,7 +104,21 @@ Api gateway to serve only a subset of the Core Api of Collective Minds system
  #### I chosed Http::fake() to mock CoreAPI responses, so I could run some unit tests (available in the tests/ folder) and executable with `./vendor/bin/phpunit` in the container cli.
 
 
+  ## Assumptions
   
+ Since I didn't know what the CoreAPI could return, or what would be needed as parameters, and for the matter of making easier the challenge, I assumed : 
+  - GET /repositories/{repositoryID}/projects endpoint would return an array of projectID within the given repositoryID
+  - GET /repositories/{repositoryID}/subjects endpoint would return an array of subjectID within the given repositoryID
+  - GET /repositories/{repositoryID}/subjects/{subjectID}/projects would return an array of projectID assigned to the given subject, within the gin repository
+  - POST /repositories/{repositoryID}/subjects/{subjectID} endpoint would create a subject in the given repository (I also only sent the subjectID in the body, and prepared an additional "data" attribute in case a subject would be more than just an ID)
+  - POST /repositories/{repositoryID}/subjects/{subjectID}/projects/{projectID} would assign the project the to the given subjectID within the given repository
+
+Concerning Core API authentication, I assumed Core API would allow only certain apps to request that Api, and I use a bearer token, straight declared in the .env file (CORE_API_BEARER=b34R3Rt0k3n). It wouldn't be long to implement a proper authentication method though.
+
+Concerning SubjectStagingLayer / Api Gateway authentication, I also declared secret keys in .env, that are checked within the middleware AuthenticationAccess.
+
+
+
   
 
 ## What has been done
@@ -120,11 +134,13 @@ Api gateway to serve only a subset of the Core Api of Collective Minds system
 
 
   
-  ## Final words
+## Final words
 
-I would like to thank you for letting me the opportunity to try this challenge, that has probably been the longest I've ever did for technical interviews (+8 hours). I have learnt a lot (1st time using Lumen / Swagger) and it has been a very interesting experience!
 
-I'm looking forward to your feedback on my work,
+I would like to thank you for letting me the opportunity to try this very challenging exercise. I enjoyed doing it, even if it has probably been the longest I've ever did for technical interviews (+8 hours spent). I have learnt a lot (1st time using Lumen / Swagger) and it has been a very interesting experience!
+
+
+I'm looking forward to hear your feedback on my work,
 
 Cheers, 
 Jacques Garré
