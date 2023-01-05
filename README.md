@@ -115,9 +115,9 @@ Api gateway to serve only a subset of the Core Api of Collective Minds system
   - POST /repositories/{repositoryID}/subjects/{subjectID} endpoint would create a subject in the given repository (I also only sent the subjectID in the body, and prepared an additional "data" attribute in case a subject would be more than just an ID)
   - POST /repositories/{repositoryID}/subjects/{subjectID}/projects/{projectID} would assign the project the to the given subjectID within the given repository
 
-Concerning Core API authentication, I assumed Core API would allow only certain apps to request that Api, and I use a bearer token, straight declared in the .env file (CORE_API_BEARER=b34R3Rt0k3n). It wouldn't be long to implement a proper authentication method though.
+Concerning Core API authentication, I assumed Core API would allow only certain apps to request that Api, so I used a bearer token declared in the .env file (CORE_API_BEARER=b34R3Rt0k3n), that I pass in the headers of each outgoing request.
 
-Concerning SubjectStagingLayer / Api Gateway authentication, I also declared secret keys in .env, that are checked within the middleware AuthenticationAccess.
+Concerning SubjectStagingLayer / Api Gateway authentication, I declared allowed secret keys in .env: each ingoing request is checked to have authorization within the middleware AuthenticationAccess.
 
 
 
