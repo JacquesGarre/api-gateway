@@ -95,11 +95,11 @@ Api gateway to serve only a subset of the Core Api of Collective Minds system
 
 #### After a few researches, I believe Laraval Lumen could be one of the most adapted framework to build this Api Gateway, for those reasons :
 
-- After my Interview with Carlos, I believe the main back-end framework used at Collective Minds is Laravel. By chosing Lumen which is just Laravel stripped down, I thought that all developers at Collective Minds could easily understand what has been made, and that there would be no learning curve of a new framework.
+- After my Interview with Carlos, I believe the main back-end framework used at Collective Minds is Laravel. That's why I chosed Lumen which is just Laravel stripped down to develop this microservice.
 
 - I also chose Lumen against Laravel itself because it seems a better fit in terms of microservices development because it's smaller, simpler, leaner, and faster, and seems to be the perfect fit for API development and what I needed to develop here.
 
-#### As containerizing the whole solution would make you very happy, I chosed to setup a Dockerfile and a docker-compose.yml myself, following Lumen's requirements (php >= 8.0)
+#### As containerizing the whole solution would make you very happy, I setup a Dockerfile and a docker-compose.yml, following Lumen's requirements (php >= 8.0)
 
 #### I chosed swagger to generate a quick documentation of both endpoints I implemented
 
@@ -111,7 +111,7 @@ Api gateway to serve only a subset of the Core Api of Collective Minds system
  Since I didn't know what the CoreAPI could return, or what would be needed as parameters, and for the matter of making easier the challenge, I assumed : 
   - GET /repositories/{repositoryID}/projects endpoint would return an array of projectID within the given repositoryID
   - GET /repositories/{repositoryID}/subjects endpoint would return an array of subjectID within the given repositoryID
-  - GET /repositories/{repositoryID}/subjects/{subjectID}/projects would return an array of projectID assigned to the given subject, within the gin repository
+  - GET /repositories/{repositoryID}/subjects/{subjectID}/projects would return an array of projectID assigned to the given subject, within the given repository
   - POST /repositories/{repositoryID}/subjects/{subjectID} endpoint would create a subject in the given repository (I also only sent the subjectID in the body, and prepared an additional "data" attribute in case a subject would be more than just an ID)
   - POST /repositories/{repositoryID}/subjects/{subjectID}/projects/{projectID} would assign the project the to the given subjectID within the given repository
 
