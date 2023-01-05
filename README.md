@@ -139,7 +139,7 @@ Concerning SubjectStagingLayer / Api Gateway authentication, I declared allowed 
 ## Final words
 
 
-I would like to thank you for letting me the opportunity to try this very challenging exercise. I enjoyed doing it, even if it has probably been the longest I've ever did for technical interviews (+8 hours spent). I have learnt a lot (1st time using Lumen / Swagger) and it has been a very interesting experience!
+I would like to thank you for letting me the opportunity to try this very challenging exercise. I enjoyed doing it, even if it has probably been the longest I've ever did for technical interviews (+8 hours spent). It has been a very interesting experience!
 
 
 I'm looking forward to hear your feedback on my work,
